@@ -1,4 +1,4 @@
-package com.frogobox.frogomealsapi.util
+package com.frogobox.frogomealsapi.data.model
 
 /**
  * Created by Faisal Amir
@@ -14,14 +14,9 @@ package com.frogobox.frogomealsapi.util
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.frogomealsapi.util
+ * com.frogobox.frogomealsapi.data.model
  *
  */
-
-class MealConstant {
-
-    companion object {
-        const val QUERY_SEARCH = "s"
-    }
-
-}
+data class Meal(
+    var asi: String? = null
+)

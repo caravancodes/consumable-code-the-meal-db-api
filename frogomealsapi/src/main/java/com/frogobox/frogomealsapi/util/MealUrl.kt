@@ -20,7 +20,12 @@ package com.frogobox.frogomealsapi.util
 class MealUrl {
 
     companion object {
-        const val MEAL_BASE_URL = "https://api.themoviedb.org/"
+
+        const val MEAL_BASE_URL = "https://www.themealdb.com/"
+        const val MEAL_BASE_PATH = "api/json/v1/"
+        const val PATH_API = "api/json/v1/{api_key}/"
+        const val MEAL_SEARCH = "$MEAL_BASE_PATH$PATH_API" + "search.php"
+
     }
 
 
