@@ -1,5 +1,7 @@
 package com.frogobox.frogomealsapi
 
+import android.content.Context
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,3 +19,10 @@ package com.frogobox.frogomealsapi
  * com.frogobox.frogomealsapi
  *
  */
+interface ConsumeMealApiView {
+
+    // Switch For Using Chuck Interceptor
+    fun usingChuckInterceptor(context: Context)
+
+
+}

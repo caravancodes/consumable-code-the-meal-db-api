@@ -17,3 +17,15 @@ package com.frogobox.frogomealsapi.base
  * com.frogobox.frogomealsapi.base
  *
  */
+interface BaseMealDataSource {
+
+    interface ResponseCallback<T> {
+
+        // If success fetching data from API
+        fun onSuccess(data: T)
+
+        // If failed fetching data from API
+        fun onFailed(statusCode: Int, errorMessage: String? = "")
+    }
+
+}

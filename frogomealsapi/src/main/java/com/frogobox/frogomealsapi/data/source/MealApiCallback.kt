@@ -17,3 +17,6 @@ package com.frogobox.frogomealsapi.data.source
  * com.frogobox.frogomealsapi.data.source
  *
  */
+class MealApiCallback {
+
+}

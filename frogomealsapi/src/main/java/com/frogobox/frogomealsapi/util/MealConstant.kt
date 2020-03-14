@@ -17,3 +17,11 @@ package com.frogobox.frogomealsapi.util
  * com.frogobox.frogomealsapi.util
  *
  */
+
+class MealConstant {
+
+    companion object {
+
+    }
+
+}

@@ -1,5 +1,7 @@
 package com.frogobox.frogomealsapi.data.source
 
+import android.content.Context
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,3 +19,10 @@ package com.frogobox.frogomealsapi.data.source
  * com.frogobox.frogomealsapi.data.source
  *
  */
+object MealRemoteDataSource : MealDataSource{
+
+    override fun usingChuckInterceptor(context: Context) {
+        TODO("Not yet implemented")
+    }
+
+}

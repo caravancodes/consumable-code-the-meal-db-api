@@ -1,5 +1,8 @@
 package com.frogobox.frogomealsapi.data.source
 
+import android.content.Context
+import com.frogobox.frogomealsapi.base.BaseMealDataSource
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,3 +20,13 @@ package com.frogobox.frogomealsapi.data.source
  * com.frogobox.frogomealsapi.data.source
  *
  */
+interface MealDataSource {
+
+    // Switch For Using Chuck Interceptor
+    fun usingChuckInterceptor(context: Context)
+
+
+    // Response Callback
+    interface GetRemoteCallback<T> : BaseMealDataSource.ResponseCallback<T>
+
+}

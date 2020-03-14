@@ -17,3 +17,12 @@ package com.frogobox.frogomealsapi.callback
  * com.frogobox.frogomealsapi.callback
  *
  */
+interface MealResultCallback<T> {
+
+    // Getting Data From API
+    fun getResultData(data: T)
+
+    // Failed Meesage
+    fun failedResult(statusCode: Int, errorMessage: String?)
+
+}

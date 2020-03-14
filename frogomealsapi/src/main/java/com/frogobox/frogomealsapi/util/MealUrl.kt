@@ -17,3 +17,11 @@ package com.frogobox.frogomealsapi.util
  * com.frogobox.frogomealsapi.util
  *
  */
+class MealUrl {
+
+    companion object {
+        const val MEAL_BASE_URL = "https://api.themoviedb.org/"
+    }
+
+
+}
