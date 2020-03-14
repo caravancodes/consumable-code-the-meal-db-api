@@ -1,2 +1,3 @@
 rootProject.name='TheMealsAPI'
 include ':app'
+include ':frogomealsapi'
