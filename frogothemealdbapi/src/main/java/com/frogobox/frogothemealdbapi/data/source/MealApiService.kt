@@ -2,7 +2,8 @@ package com.frogobox.frogothemealdbapi.data.source
 
 import android.content.Context
 import com.frogobox.frogothemealdbapi.data.model.*
-import com.frogobox.frogothemealdbapi.data.response.*
+import com.frogobox.frogothemealdbapi.data.response.CategoryResponse
+import com.frogobox.frogothemealdbapi.data.response.MealResponse
 import com.frogobox.frogothemealdbapi.util.MealConstant
 import com.frogobox.frogothemealdbapi.util.MealUrl
 import com.readystatesoftware.chuck.ChuckInterceptor
@@ -95,6 +96,18 @@ interface MealApiService {
     fun filterByIngredient(
         @Path(MealConstant.PATH_API_KEY) apiKey: String,
         @Query(MealConstant.QUERY_INGREDIENT) ingredient: String
+    ): Observable<MealResponse<MealFilter>>
+
+    // Filter by Category
+    fun filterByCategory(
+        @Path(MealConstant.PATH_API_KEY) apiKey: String,
+        @Query(MealConstant.QUERY_CATEGORY) category: String
+    ): Observable<MealResponse<MealFilter>>
+
+    // Filter by Area
+    fun filterByArea(
+        @Path(MealConstant.PATH_API_KEY) apiKey: String,
+        @Query(MealConstant.QUERY_AREA) area: String
     ): Observable<MealResponse<MealFilter>>
 
     companion object Factory {

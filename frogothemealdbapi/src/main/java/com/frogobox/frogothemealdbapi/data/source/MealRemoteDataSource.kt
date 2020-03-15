@@ -234,4 +234,50 @@ object MealRemoteDataSource : MealDataSource {
                 }
             })
     }
+
+    override fun filterByCategory(
+        apiKey: String,
+        category: String,
+        callback: MealDataSource.GetRemoteCallback<MealResponse<MealFilter>>
+    ) {
+        mealApiService.getApiService
+            .filterByCategory(apiKey, category)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : MealApiCallback<MealResponse<MealFilter>>() {
+                override fun onSuccess(data: MealResponse<MealFilter>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(code: Int, errorMessage: String) {
+                    callback.onFailed(code, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun filterByArea(
+        apiKey: String,
+        area: String,
+        callback: MealDataSource.GetRemoteCallback<MealResponse<MealFilter>>
+    ) {
+        mealApiService.getApiService
+            .filterByArea(apiKey, area)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : MealApiCallback<MealResponse<MealFilter>>() {
+                override fun onSuccess(data: MealResponse<MealFilter>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(code: Int, errorMessage: String) {
+                    callback.onFailed(code, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }

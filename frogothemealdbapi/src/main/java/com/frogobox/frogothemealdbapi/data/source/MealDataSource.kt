@@ -54,6 +54,12 @@ interface MealDataSource {
     // Filter by main ingredient
     fun filterByIngredient(apiKey: String, ingredient: String, callback: GetRemoteCallback<MealResponse<MealFilter>>)
 
+    // Filter by Category
+    fun filterByCategory(apiKey: String, category: String, callback: GetRemoteCallback<MealResponse<MealFilter>>)
+
+    // Filter by Area
+    fun filterByArea(apiKey: String, area: String, callback: GetRemoteCallback<MealResponse<MealFilter>>)
+
     // Response Callback
     interface GetRemoteCallback<T> : BaseMealDataSource.ResponseCallback<T>
 

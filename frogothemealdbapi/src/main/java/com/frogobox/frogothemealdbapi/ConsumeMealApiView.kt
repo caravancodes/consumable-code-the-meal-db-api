@@ -3,7 +3,8 @@ package com.frogobox.frogothemealdbapi
 import android.content.Context
 import com.frogobox.frogothemealdbapi.callback.MealResultCallback
 import com.frogobox.frogothemealdbapi.data.model.*
-import com.frogobox.frogothemealdbapi.data.response.*
+import com.frogobox.frogothemealdbapi.data.response.CategoryResponse
+import com.frogobox.frogothemealdbapi.data.response.MealResponse
 
 /**
  * Created by Faisal Amir
@@ -53,5 +54,11 @@ interface ConsumeMealApiView {
 
     // Filter by main ingredient
     fun filterByIngredient(ingredient: String, callback: MealResultCallback<MealResponse<MealFilter>>)
+
+    // Filter by Category
+    fun filterByCategory(category: String, callback: MealResultCallback<MealResponse<MealFilter>>)
+
+    // Filter by Area
+    fun filterByArea(area: String, callback: MealResultCallback<MealResponse<MealFilter>>)
 
 }

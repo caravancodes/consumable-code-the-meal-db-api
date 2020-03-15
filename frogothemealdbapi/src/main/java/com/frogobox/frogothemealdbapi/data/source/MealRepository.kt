@@ -93,4 +93,20 @@ class MealRepository(private val remoteDataSource: MealRemoteDataSource) : MealD
     ) {
         remoteDataSource.filterByIngredient(apiKey, ingredient, callback)
     }
+
+    override fun filterByCategory(
+        apiKey: String,
+        category: String,
+        callback: MealDataSource.GetRemoteCallback<MealResponse<MealFilter>>
+    ) {
+        remoteDataSource.filterByCategory(apiKey, category, callback)
+    }
+
+    override fun filterByArea(
+        apiKey: String,
+        area: String,
+        callback: MealDataSource.GetRemoteCallback<MealResponse<MealFilter>>
+    ) {
+        remoteDataSource.filterByArea(apiKey, area, callback)
+    }
 }

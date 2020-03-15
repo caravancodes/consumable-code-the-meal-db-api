@@ -169,4 +169,40 @@ class ConsumeMealApi(private val apiKey: String) : ConsumeMealApiView {
                 }
             })
     }
+
+    override fun filterByCategory(
+        category: String,
+        callback: MealResultCallback<MealResponse<MealFilter>>
+    ) {
+        repository.filterByCategory(
+            apiKey,
+            category,
+            object : MealDataSource.GetRemoteCallback<MealResponse<MealFilter>> {
+                override fun onSuccess(data: MealResponse<MealFilter>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+            })
+    }
+
+    override fun filterByArea(
+        area: String,
+        callback: MealResultCallback<MealResponse<MealFilter>>
+    ) {
+        repository.filterByArea(
+            apiKey,
+            area,
+            object : MealDataSource.GetRemoteCallback<MealResponse<MealFilter>> {
+                override fun onSuccess(data: MealResponse<MealFilter>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+            })
+    }
 }
