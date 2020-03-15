@@ -23,7 +23,7 @@ import com.frogobox.frogothemealdbapi.data.response.MealResponse
  * com.frogobox.frogomealsapi
  *
  */
-interface ConsumeMealApiView {
+interface ConsumeTheMealDbApiView {
 
     // Switch For Using Chuck Interceptor
     fun usingChuckInterceptor(context: Context)

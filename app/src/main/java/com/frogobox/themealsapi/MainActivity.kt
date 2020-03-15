@@ -3,7 +3,7 @@ package com.frogobox.themealsapi
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.frogothemealdbapi.ConsumeMealApi
+import com.frogobox.frogothemealdbapi.ConsumeTheMealDbApi
 import com.frogobox.frogothemealdbapi.callback.MealResultCallback
 import com.frogobox.frogothemealdbapi.data.model.Category
 import com.frogobox.frogothemealdbapi.data.response.MealResponse
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val consumeMealApi = ConsumeMealApi("1")
+        val consumeMealApi = ConsumeTheMealDbApi("1")
 
         consumeMealApi.usingChuckInterceptor(this)
         consumeMealApi.listAllCateories(object : MealResultCallback<MealResponse<Category>> {

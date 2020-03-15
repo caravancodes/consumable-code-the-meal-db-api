@@ -26,7 +26,7 @@ import com.frogobox.frogothemealdbapi.data.source.MealRepository
  * com.frogobox.frogomealsapi
  *
  */
-class ConsumeMealApi(private val apiKey: String) : ConsumeMealApiView {
+class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView {
 
     private val repository = MealRepository(MealRemoteDataSource)
 
