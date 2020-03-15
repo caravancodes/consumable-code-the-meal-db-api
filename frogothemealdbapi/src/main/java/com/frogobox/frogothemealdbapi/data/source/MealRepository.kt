@@ -1,7 +1,7 @@
 package com.frogobox.frogothemealdbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemealdbapi.data.response.Meals
+import com.frogobox.frogothemealdbapi.data.response.*
 
 /**
  * Created by Faisal Amir
@@ -55,5 +55,30 @@ class MealRepository(private val remoteDataSource: MealRemoteDataSource) : MealD
         callback: MealDataSource.GetRemoteCallback<Meals>
     ) {
         remoteDataSource.lookupRandomMeal(apiKey, callback)
+    }
+
+    override fun listMealCategories(
+        apiKey: String,
+        callback: MealDataSource.GetRemoteCallback<Categories>
+    ) {
+        remoteDataSource.listMealCategories(apiKey, callback)
+    }
+
+    override fun listAllCateories(
+        apiKey: String,
+        callback: MealDataSource.GetRemoteCallback<CategoriesList>
+    ) {
+        remoteDataSource.listAllCateories(apiKey, callback)
+    }
+
+    override fun listAllArea(apiKey: String, callback: MealDataSource.GetRemoteCallback<Areas>) {
+        remoteDataSource.listAllArea(apiKey, callback)
+    }
+
+    override fun listAllIngredients(
+        apiKey: String,
+        callback: MealDataSource.GetRemoteCallback<Ingredients>
+    ) {
+        remoteDataSource.listAllIngredients(apiKey, callback)
     }
 }

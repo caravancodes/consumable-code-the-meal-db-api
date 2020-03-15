@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.frogothemealdbapi.ConsumeMealApi
 import com.frogobox.frogothemealdbapi.callback.MealResultCallback
+import com.frogobox.frogothemealdbapi.data.response.CategoriesList
 import com.frogobox.frogothemealdbapi.data.response.Meals
 
 class MainActivity : AppCompatActivity() {
@@ -17,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         val consumeMealApi = ConsumeMealApi("1")
 
         consumeMealApi.usingChuckInterceptor(this)
-        consumeMealApi.lookupRandomMeal(object : MealResultCallback<Meals> {
-            override fun getResultData(data: Meals) {
+        consumeMealApi.listAllCateories(object : MealResultCallback<CategoriesList> {
+            override fun getResultData(data: CategoriesList) {
                 for (i in data.meals!!.indices) {
 
                 }

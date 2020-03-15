@@ -25,8 +25,13 @@ class MealConstant {
         const val QUERY_NAME = "s"
         const val QUERY_FIRST_LETTER = "f"
         const val QUERY_ID = "i"
+        const val QUERY_CATEGORY = "c"
+        const val QUERY_AREA = "a"
+        const val QUERY_INGREDIENT = "i"
 
         const val PATH_API_KEY = "api_key"
+
+        const val VALUE_LIST = "list"
 
     }
 

@@ -2,7 +2,7 @@ package com.frogobox.frogothemealdbapi
 
 import android.content.Context
 import com.frogobox.frogothemealdbapi.callback.MealResultCallback
-import com.frogobox.frogothemealdbapi.data.response.Meals
+import com.frogobox.frogothemealdbapi.data.response.*
 import com.frogobox.frogothemealdbapi.data.source.MealDataSource
 import com.frogobox.frogothemealdbapi.data.source.MealRemoteDataSource
 import com.frogobox.frogothemealdbapi.data.source.MealRepository
@@ -74,6 +74,54 @@ class ConsumeMealApi(private val apiKey: String) : ConsumeMealApiView {
     override fun lookupRandomMeal(callback: MealResultCallback<Meals>) {
         repository.lookupRandomMeal(apiKey, object : MealDataSource.GetRemoteCallback<Meals> {
             override fun onSuccess(data: Meals) {
+                callback.getResultData(data)
+            }
+
+            override fun onFailed(statusCode: Int, errorMessage: String?) {
+                callback.failedResult(statusCode, errorMessage)
+            }
+        })
+    }
+
+    override fun listMealCategories(callback: MealResultCallback<Categories>) {
+        repository.listMealCategories(apiKey, object : MealDataSource.GetRemoteCallback<Categories> {
+            override fun onSuccess(data: Categories) {
+                callback.getResultData(data)
+            }
+
+            override fun onFailed(statusCode: Int, errorMessage: String?) {
+                callback.failedResult(statusCode, errorMessage)
+            }
+        })
+    }
+
+    override fun listAllCateories(callback: MealResultCallback<CategoriesList>) {
+        repository.listAllCateories(apiKey, object : MealDataSource.GetRemoteCallback<CategoriesList> {
+            override fun onSuccess(data: CategoriesList) {
+                callback.getResultData(data)
+            }
+
+            override fun onFailed(statusCode: Int, errorMessage: String?) {
+                callback.failedResult(statusCode, errorMessage)
+            }
+        })
+    }
+
+    override fun listAllArea(callback: MealResultCallback<Areas>) {
+        repository.listAllArea(apiKey, object : MealDataSource.GetRemoteCallback<Areas> {
+            override fun onSuccess(data: Areas) {
+                callback.getResultData(data)
+            }
+
+            override fun onFailed(statusCode: Int, errorMessage: String?) {
+                callback.failedResult(statusCode, errorMessage)
+            }
+        })
+    }
+
+    override fun listAllIngredients(callback: MealResultCallback<Ingredients>) {
+        repository.listAllIngredients(apiKey, object : MealDataSource.GetRemoteCallback<Ingredients> {
+            override fun onSuccess(data: Ingredients) {
                 callback.getResultData(data)
             }
 

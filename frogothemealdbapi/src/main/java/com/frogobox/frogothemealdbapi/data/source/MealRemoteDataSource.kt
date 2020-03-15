@@ -1,7 +1,8 @@
 package com.frogobox.frogothemealdbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemealdbapi.data.response.Meals
+import com.frogobox.frogothemealdbapi.data.response.*
+import com.frogobox.frogothemealdbapi.util.MealConstant
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -22,7 +23,7 @@ import io.reactivex.schedulers.Schedulers
  * com.frogobox.frogomealsapi.data.source
  *
  */
-object MealRemoteDataSource : MealDataSource{
+object MealRemoteDataSource : MealDataSource {
 
     private val mealApiService = MealApiService
 
@@ -121,4 +122,90 @@ object MealRemoteDataSource : MealDataSource{
                 }
             })
     }
+
+    override fun listMealCategories(
+        apiKey: String,
+        callback: MealDataSource.GetRemoteCallback<Categories>
+    ) {
+        mealApiService.getApiService
+            .listMealCategories(apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : MealApiCallback<Categories>() {
+                override fun onSuccess(data: Categories) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(code: Int, errorMessage: String) {
+                    callback.onFailed(code, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun listAllCateories(
+        apiKey: String,
+        callback: MealDataSource.GetRemoteCallback<CategoriesList>
+    ) {
+        mealApiService.getApiService
+            .listAllCateories(apiKey, MealConstant.VALUE_LIST)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : MealApiCallback<CategoriesList>() {
+                override fun onSuccess(data: CategoriesList) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(code: Int, errorMessage: String) {
+                    callback.onFailed(code, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun listAllArea(apiKey: String, callback: MealDataSource.GetRemoteCallback<Areas>) {
+        mealApiService.getApiService
+            .listAllArea(apiKey, MealConstant.VALUE_LIST)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : MealApiCallback<Areas>() {
+                override fun onSuccess(data: Areas) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(code: Int, errorMessage: String) {
+                    callback.onFailed(code, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun listAllIngredients(
+        apiKey: String,
+        callback: MealDataSource.GetRemoteCallback<Ingredients>
+    ) {
+        mealApiService.getApiService
+            .listAllIngredients(apiKey, MealConstant.VALUE_LIST)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : MealApiCallback<Ingredients>() {
+                override fun onSuccess(data: Ingredients) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(code: Int, errorMessage: String) {
+                    callback.onFailed(code, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
 }

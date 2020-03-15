@@ -1,7 +1,7 @@
 package com.frogobox.frogothemealdbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemealdbapi.data.response.Meals
+import com.frogobox.frogothemealdbapi.data.response.*
 import com.frogobox.frogothemealdbapi.util.MealConstant
 import com.frogobox.frogothemealdbapi.util.MealUrl
 import com.readystatesoftware.chuck.ChuckInterceptor
@@ -61,6 +61,33 @@ interface MealApiService {
     fun lookupRandomMeal(
         @Path(MealConstant.PATH_API_KEY) apiKey: String
     ): Observable<Meals>
+
+    // List all meal categories
+    @GET(MealUrl.MEALDB_URL_CATEGORIES)
+    fun listMealCategories(
+        @Path(MealConstant.PATH_API_KEY) apiKey: String
+    ): Observable<Categories>
+
+    // List all Categories
+    @GET(MealUrl.MEALDB_URL_LIST)
+    fun listAllCateories(
+        @Path(MealConstant.PATH_API_KEY) apiKey: String,
+        @Query(MealConstant.QUERY_CATEGORY) query: String
+    ): Observable<CategoriesList>
+
+    // List all Area
+    @GET(MealUrl.MEALDB_URL_LIST)
+    fun listAllArea(
+        @Path(MealConstant.PATH_API_KEY) apiKey: String,
+        @Query(MealConstant.QUERY_AREA) query: String
+    ): Observable<Areas>
+
+    // List all Ingredients
+    @GET(MealUrl.MEALDB_URL_LIST)
+    fun listAllIngredients(
+        @Path(MealConstant.PATH_API_KEY) apiKey: String,
+        @Query(MealConstant.QUERY_INGREDIENT) query: String
+    ): Observable<Ingredients>
 
     companion object Factory {
 

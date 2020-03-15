@@ -2,7 +2,8 @@ package com.frogobox.frogothemealdbapi
 
 import android.content.Context
 import com.frogobox.frogothemealdbapi.callback.MealResultCallback
-import com.frogobox.frogothemealdbapi.data.response.Meals
+import com.frogobox.frogothemealdbapi.data.response.*
+import com.frogobox.frogothemealdbapi.data.source.MealDataSource
 
 /**
  * Created by Faisal Amir
@@ -37,5 +38,18 @@ interface ConsumeMealApiView {
 
     // Lookup a single random meal
     fun lookupRandomMeal(callback: MealResultCallback<Meals>)
+
+    // List all meal categories
+    fun listMealCategories(callback: MealResultCallback<Categories>)
+
+    // List all Categories
+    fun listAllCateories(callback: MealResultCallback<CategoriesList>)
+
+    // List all Area
+    fun listAllArea(callback: MealResultCallback<Areas>)
+
+    // List all Ingredients
+    fun listAllIngredients(callback: MealResultCallback<Ingredients>)
+
 
 }

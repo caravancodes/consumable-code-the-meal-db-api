@@ -27,6 +27,8 @@ class MealUrl {
         const val MEALDB_URL_SEARCH_MEAL = "$MEALDB_BASE_PATH$MEALDB_PATH_API" + "search.php"
         const val MEALDB_URL_LOOKUP_MEAL = "$MEALDB_BASE_PATH$MEALDB_PATH_API" + "lookup.php"
         const val MEALDB_URL_RANDOM_MEAL = "$MEALDB_BASE_PATH$MEALDB_PATH_API" + "random.php"
+        const val MEALDB_URL_CATEGORIES = "$MEALDB_BASE_PATH$MEALDB_PATH_API" + "categories.php"
+        const val MEALDB_URL_LIST = "$MEALDB_BASE_PATH$MEALDB_PATH_API" + "list.php"
 
     }
 

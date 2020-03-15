@@ -2,7 +2,7 @@ package com.frogobox.frogothemealdbapi.data.source
 
 import android.content.Context
 import com.frogobox.frogothemealdbapi.base.BaseMealDataSource
-import com.frogobox.frogothemealdbapi.data.response.Meals
+import com.frogobox.frogothemealdbapi.data.response.*
 
 /**
  * Created by Faisal Amir
@@ -37,6 +37,18 @@ interface MealDataSource {
 
     // Lookup a single random meal
     fun lookupRandomMeal(apiKey: String, callback: GetRemoteCallback<Meals>)
+
+    // List all meal categories
+    fun listMealCategories(apiKey: String, callback: GetRemoteCallback<Categories>)
+
+    // List all Categories
+    fun listAllCateories(apiKey: String, callback: GetRemoteCallback<CategoriesList>)
+
+    // List all Area
+    fun listAllArea(apiKey: String, callback: GetRemoteCallback<Areas>)
+
+    // List all Ingredients
+    fun listAllIngredients(apiKey: String, callback: GetRemoteCallback<Ingredients>)
 
     // Response Callback
     interface GetRemoteCallback<T> : BaseMealDataSource.ResponseCallback<T>
