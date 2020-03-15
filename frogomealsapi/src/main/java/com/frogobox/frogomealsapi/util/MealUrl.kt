@@ -21,10 +21,12 @@ class MealUrl {
 
     companion object {
 
-        const val MEAL_BASE_URL = "https://www.themealdb.com/"
-        const val MEAL_BASE_PATH = "api/json/v1/"
-        const val PATH_API = "api/json/v1/{api_key}/"
-        const val MEAL_SEARCH = "$MEAL_BASE_PATH$PATH_API" + "search.php"
+        const val MEALDB_BASE_URL = "https://www.themealdb.com/"
+        const val MEALDB_BASE_PATH = "api/json/v1/"
+        const val MEALDB_PATH_API = "{api_key}/"
+        const val MEALDB_URL_SEARCH_MEAL = "$MEALDB_BASE_PATH$MEALDB_PATH_API" + "search.php"
+        const val MEALDB_URL_LOOKUP_MEAL = "$MEALDB_BASE_PATH$MEALDB_PATH_API" + "lookup.php"
+        const val MEALDB_URL_RANDOM_MEAL = "$MEALDB_BASE_PATH$MEALDB_PATH_API" + "random.php"
 
     }
 

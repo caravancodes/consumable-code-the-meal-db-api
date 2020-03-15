@@ -1,6 +1,9 @@
 package com.frogobox.frogomealsapi
 
 import android.content.Context
+import com.frogobox.frogomealsapi.callback.MealResultCallback
+import com.frogobox.frogomealsapi.data.response.Meals
+import com.frogobox.frogomealsapi.data.source.MealDataSource
 
 /**
  * Created by Faisal Amir
@@ -24,5 +27,16 @@ interface ConsumeMealApiView {
     // Switch For Using Chuck Interceptor
     fun usingChuckInterceptor(context: Context)
 
+    // Search meal by name
+    fun searchMeal(mealName: String, callback: MealResultCallback<Meals>)
+
+    // List all meals by first letter
+    fun listAllMeal(firstLetter: String, callback: MealResultCallback<Meals>)
+
+    // Lookup full meal details by id
+    fun lookupFullMeal(idMeal: String, callback: MealResultCallback<Meals>)
+
+    // Lookup a single random meal
+    fun lookupRandomMeal(callback: MealResultCallback<Meals>)
 
 }

@@ -21,7 +21,13 @@ package com.frogobox.frogomealsapi.util
 class MealConstant {
 
     companion object {
-        const val QUERY_SEARCH = "s"
+
+        const val QUERY_NAME = "s"
+        const val QUERY_FIRST_LETTER = "f"
+        const val QUERY_ID = "i"
+
+        const val PATH_API_KEY = "api_key"
+
     }
 
 }

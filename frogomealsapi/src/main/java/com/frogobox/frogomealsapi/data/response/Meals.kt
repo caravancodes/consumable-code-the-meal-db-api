@@ -1,6 +1,7 @@
 package com.frogobox.frogomealsapi.data.response
 
 import com.frogobox.frogomealsapi.data.model.Meal
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by Faisal Amir
@@ -19,4 +20,8 @@ import com.frogobox.frogomealsapi.data.model.Meal
  * com.frogobox.frogomealsapi.data.response
  *
  */
-data class Meals(var meals: List<Meal>? = null)
+data class Meals(
+
+    @SerializedName("meals")
+    var meals: List<Meal>? = null
+)

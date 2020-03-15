@@ -2,6 +2,7 @@ package com.frogobox.frogomealsapi.data.source
 
 import android.content.Context
 import com.frogobox.frogomealsapi.base.BaseMealDataSource
+import com.frogobox.frogomealsapi.data.response.Meals
 
 /**
  * Created by Faisal Amir
@@ -25,6 +26,17 @@ interface MealDataSource {
     // Switch For Using Chuck Interceptor
     fun usingChuckInterceptor(context: Context)
 
+    // Search meal by name
+    fun searchMeal(apiKey: String, mealName: String, callback: GetRemoteCallback<Meals>)
+
+    // List all meals by first letter
+    fun listAllMeal(apiKey: String, firstLetter: String, callback: GetRemoteCallback<Meals>)
+
+    // Lookup full meal details by id
+    fun lookupFullMeal(apiKey: String, idMeal: String, callback: GetRemoteCallback<Meals>)
+
+    // Lookup a single random meal
+    fun lookupRandomMeal(apiKey: String, callback: GetRemoteCallback<Meals>)
 
     // Response Callback
     interface GetRemoteCallback<T> : BaseMealDataSource.ResponseCallback<T>
