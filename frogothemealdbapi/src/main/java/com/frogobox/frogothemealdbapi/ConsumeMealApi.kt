@@ -2,7 +2,9 @@ package com.frogobox.frogothemealdbapi
 
 import android.content.Context
 import com.frogobox.frogothemealdbapi.callback.MealResultCallback
-import com.frogobox.frogothemealdbapi.data.response.*
+import com.frogobox.frogothemealdbapi.data.model.*
+import com.frogobox.frogothemealdbapi.data.response.CategoryResponse
+import com.frogobox.frogothemealdbapi.data.response.MealResponse
 import com.frogobox.frogothemealdbapi.data.source.MealDataSource
 import com.frogobox.frogothemealdbapi.data.source.MealRemoteDataSource
 import com.frogobox.frogothemealdbapi.data.source.MealRepository
@@ -32,24 +34,12 @@ class ConsumeMealApi(private val apiKey: String) : ConsumeMealApiView {
         repository.usingChuckInterceptor(context)
     }
 
-    override fun searchMeal(mealName: String, callback: MealResultCallback<Meals>) {
-        repository.searchMeal(apiKey, mealName, object : MealDataSource.GetRemoteCallback<Meals> {
-            override fun onSuccess(data: Meals) {
-                callback.getResultData(data)
-            }
-
-            override fun onFailed(statusCode: Int, errorMessage: String?) {
-                callback.failedResult(statusCode, errorMessage)
-            }
-        })
-    }
-
-    override fun listAllMeal(firstLetter: String, callback: MealResultCallback<Meals>) {
-        repository.listAllMeal(
+    override fun searchMeal(mealName: String, callback: MealResultCallback<MealResponse<Meal>>) {
+        repository.searchMeal(
             apiKey,
-            firstLetter,
-            object : MealDataSource.GetRemoteCallback<Meals> {
-                override fun onSuccess(data: Meals) {
+            mealName,
+            object : MealDataSource.GetRemoteCallback<MealResponse<Meal>> {
+                override fun onSuccess(data: MealResponse<Meal>) {
                     callback.getResultData(data)
                 }
 
@@ -59,75 +49,124 @@ class ConsumeMealApi(private val apiKey: String) : ConsumeMealApiView {
             })
     }
 
-    override fun lookupFullMeal(idMeal: String, callback: MealResultCallback<Meals>) {
-        repository.lookupFullMeal(apiKey, idMeal, object : MealDataSource.GetRemoteCallback<Meals> {
-            override fun onSuccess(data: Meals) {
-                callback.getResultData(data)
-            }
+    override fun listAllMeal(
+        firstLetter: String,
+        callback: MealResultCallback<MealResponse<Meal>>
+    ) {
+        repository.listAllMeal(
+            apiKey,
+            firstLetter,
+            object : MealDataSource.GetRemoteCallback<MealResponse<Meal>> {
+                override fun onSuccess(data: MealResponse<Meal>) {
+                    callback.getResultData(data)
+                }
 
-            override fun onFailed(statusCode: Int, errorMessage: String?) {
-                callback.failedResult(statusCode, errorMessage)
-            }
-        })
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+            })
     }
 
-    override fun lookupRandomMeal(callback: MealResultCallback<Meals>) {
-        repository.lookupRandomMeal(apiKey, object : MealDataSource.GetRemoteCallback<Meals> {
-            override fun onSuccess(data: Meals) {
-                callback.getResultData(data)
-            }
+    override fun lookupFullMeal(idMeal: String, callback: MealResultCallback<MealResponse<Meal>>) {
+        repository.lookupFullMeal(
+            apiKey,
+            idMeal,
+            object : MealDataSource.GetRemoteCallback<MealResponse<Meal>> {
+                override fun onSuccess(data: MealResponse<Meal>) {
+                    callback.getResultData(data)
+                }
 
-            override fun onFailed(statusCode: Int, errorMessage: String?) {
-                callback.failedResult(statusCode, errorMessage)
-            }
-        })
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+            })
     }
 
-    override fun listMealCategories(callback: MealResultCallback<Categories>) {
-        repository.listMealCategories(apiKey, object : MealDataSource.GetRemoteCallback<Categories> {
-            override fun onSuccess(data: Categories) {
-                callback.getResultData(data)
-            }
+    override fun lookupRandomMeal(callback: MealResultCallback<MealResponse<Meal>>) {
+        repository.lookupRandomMeal(
+            apiKey,
+            object : MealDataSource.GetRemoteCallback<MealResponse<Meal>> {
+                override fun onSuccess(data: MealResponse<Meal>) {
+                    callback.getResultData(data)
+                }
 
-            override fun onFailed(statusCode: Int, errorMessage: String?) {
-                callback.failedResult(statusCode, errorMessage)
-            }
-        })
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+            })
     }
 
-    override fun listAllCateories(callback: MealResultCallback<CategoriesList>) {
-        repository.listAllCateories(apiKey, object : MealDataSource.GetRemoteCallback<CategoriesList> {
-            override fun onSuccess(data: CategoriesList) {
-                callback.getResultData(data)
-            }
+    override fun listMealCategories(callback: MealResultCallback<CategoryResponse>) {
+        repository.listMealCategories(
+            apiKey,
+            object : MealDataSource.GetRemoteCallback<CategoryResponse> {
+                override fun onSuccess(data: CategoryResponse) {
+                    callback.getResultData(data)
+                }
 
-            override fun onFailed(statusCode: Int, errorMessage: String?) {
-                callback.failedResult(statusCode, errorMessage)
-            }
-        })
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+            })
     }
 
-    override fun listAllArea(callback: MealResultCallback<Areas>) {
-        repository.listAllArea(apiKey, object : MealDataSource.GetRemoteCallback<Areas> {
-            override fun onSuccess(data: Areas) {
-                callback.getResultData(data)
-            }
+    override fun listAllCateories(callback: MealResultCallback<MealResponse<Category>>) {
+        repository.listAllCateories(
+            apiKey,
+            object : MealDataSource.GetRemoteCallback<MealResponse<Category>> {
+                override fun onSuccess(data: MealResponse<Category>) {
+                    callback.getResultData(data)
+                }
 
-            override fun onFailed(statusCode: Int, errorMessage: String?) {
-                callback.failedResult(statusCode, errorMessage)
-            }
-        })
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+            })
     }
 
-    override fun listAllIngredients(callback: MealResultCallback<Ingredients>) {
-        repository.listAllIngredients(apiKey, object : MealDataSource.GetRemoteCallback<Ingredients> {
-            override fun onSuccess(data: Ingredients) {
-                callback.getResultData(data)
-            }
+    override fun listAllArea(callback: MealResultCallback<MealResponse<Area>>) {
+        repository.listAllArea(
+            apiKey,
+            object : MealDataSource.GetRemoteCallback<MealResponse<Area>> {
+                override fun onSuccess(data: MealResponse<Area>) {
+                    callback.getResultData(data)
+                }
 
-            override fun onFailed(statusCode: Int, errorMessage: String?) {
-                callback.failedResult(statusCode, errorMessage)
-            }
-        })
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+            })
+    }
+
+    override fun listAllIngredients(callback: MealResultCallback<MealResponse<Ingredient>>) {
+        repository.listAllIngredients(
+            apiKey,
+            object : MealDataSource.GetRemoteCallback<MealResponse<Ingredient>> {
+                override fun onSuccess(data: MealResponse<Ingredient>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+            })
+    }
+
+    override fun filterByIngredient(
+        ingredient: String,
+        callback: MealResultCallback<MealResponse<MealFilter>>
+    ) {
+        repository.filterByIngredient(
+            apiKey,
+            ingredient,
+            object : MealDataSource.GetRemoteCallback<MealResponse<MealFilter>> {
+                override fun onSuccess(data: MealResponse<MealFilter>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+            })
     }
 }

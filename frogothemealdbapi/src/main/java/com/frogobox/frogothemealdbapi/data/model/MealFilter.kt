@@ -1,6 +1,5 @@
-package com.frogobox.frogothemealdbapi.data.response
+package com.frogobox.frogothemealdbapi.data.model
 
-import com.frogobox.frogothemealdbapi.data.model.Category
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -17,12 +16,18 @@ import com.google.gson.annotations.SerializedName
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.frogothemealdbapi.data.response
+ * com.frogobox.frogothemealdbapi.data.model
  *
  */
-data class CategoriesList(
+data class MealFilter(
 
-    @SerializedName("meals")
-    var meals: List<Category>? = null
+    @SerializedName("strMeal")
+    var strMeal: String? = null,
+
+    @SerializedName("strMealThumb")
+    var strMealThumb: String? = null,
+
+    @SerializedName("idMeal")
+    var idMeal: String? = null
 
 )

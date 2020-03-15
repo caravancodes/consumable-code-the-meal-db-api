@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName
  * com.frogobox.frogothemealdbapi.data.response
  *
  */
-data class Categories(
+data class CategoryResponse(
 
     @SerializedName("categories")
     var categories: List<Category>? = null

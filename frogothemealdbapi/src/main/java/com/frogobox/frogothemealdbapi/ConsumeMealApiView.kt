@@ -2,8 +2,8 @@ package com.frogobox.frogothemealdbapi
 
 import android.content.Context
 import com.frogobox.frogothemealdbapi.callback.MealResultCallback
+import com.frogobox.frogothemealdbapi.data.model.*
 import com.frogobox.frogothemealdbapi.data.response.*
-import com.frogobox.frogothemealdbapi.data.source.MealDataSource
 
 /**
  * Created by Faisal Amir
@@ -28,28 +28,30 @@ interface ConsumeMealApiView {
     fun usingChuckInterceptor(context: Context)
 
     // Search meal by name
-    fun searchMeal(mealName: String, callback: MealResultCallback<Meals>)
+    fun searchMeal(mealName: String, callback: MealResultCallback<MealResponse<Meal>>)
 
     // List all meals by first letter
-    fun listAllMeal(firstLetter: String, callback: MealResultCallback<Meals>)
+    fun listAllMeal(firstLetter: String, callback: MealResultCallback<MealResponse<Meal>>)
 
     // Lookup full meal details by id
-    fun lookupFullMeal(idMeal: String, callback: MealResultCallback<Meals>)
+    fun lookupFullMeal(idMeal: String, callback: MealResultCallback<MealResponse<Meal>>)
 
     // Lookup a single random meal
-    fun lookupRandomMeal(callback: MealResultCallback<Meals>)
+    fun lookupRandomMeal(callback: MealResultCallback<MealResponse<Meal>>)
 
     // List all meal categories
-    fun listMealCategories(callback: MealResultCallback<Categories>)
+    fun listMealCategories(callback: MealResultCallback<CategoryResponse>)
 
     // List all Categories
-    fun listAllCateories(callback: MealResultCallback<CategoriesList>)
+    fun listAllCateories(callback: MealResultCallback<MealResponse<Category>>)
 
     // List all Area
-    fun listAllArea(callback: MealResultCallback<Areas>)
+    fun listAllArea(callback: MealResultCallback<MealResponse<Area>>)
 
     // List all Ingredients
-    fun listAllIngredients(callback: MealResultCallback<Ingredients>)
+    fun listAllIngredients(callback: MealResultCallback<MealResponse<Ingredient>>)
 
+    // Filter by main ingredient
+    fun filterByIngredient(ingredient: String, callback: MealResultCallback<MealResponse<MealFilter>>)
 
 }

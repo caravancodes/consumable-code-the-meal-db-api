@@ -1,7 +1,5 @@
 package com.frogobox.frogothemealdbapi.data.response
 
-import com.frogobox.frogothemealdbapi.data.model.Area
-import com.frogobox.frogothemealdbapi.data.model.Category
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -21,9 +19,9 @@ import com.google.gson.annotations.SerializedName
  * com.frogobox.frogothemealdbapi.data.response
  *
  */
-data class Areas(
+data class MealResponse<T> (
 
     @SerializedName("meals")
-    var meals: List<Area>? = null
+    var meals: List<T>? = null
 
 )
