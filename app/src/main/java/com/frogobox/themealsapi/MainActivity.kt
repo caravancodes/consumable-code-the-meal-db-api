@@ -1,11 +1,10 @@
 package com.frogobox.themealsapi
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.frogomealsapi.ConsumeMealApi
-import com.frogobox.frogomealsapi.callback.MealResultCallback
-import com.frogobox.frogomealsapi.data.response.Meals
+import com.frogobox.frogothemealdbapi.ConsumeMealApi
+import com.frogobox.frogothemealdbapi.callback.MealResultCallback
+import com.frogobox.frogothemealdbapi.data.response.Meals
 
 class MainActivity : AppCompatActivity() {
 
