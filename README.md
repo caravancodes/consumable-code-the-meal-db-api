@@ -1,4 +1,4 @@
-# consumable-code-meal-api By AmirIsBack
+# consumable-code-the-meal-db-api By AmirIsBack
 - v1.0.0 - Development
 - Stable Version
 
@@ -14,7 +14,7 @@ Simple code and reusable data
 - OkHttp
 - Chuck Interceptor
 
-# Documentation Meal Api
+# Documentation The Meal Db Api
 https://www.themealdb.com/api.php
 
 # Function Main From This Project
