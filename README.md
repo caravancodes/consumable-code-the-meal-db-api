@@ -1,5 +1,5 @@
 # consumable-code-the-meal-db-api By AmirIsBack
-- v1.0.0 - Development
+- v1.0.1 - Development
 - Stable Version
 
 # About This Project
@@ -66,11 +66,11 @@ https://www.themealdb.com/api.php
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.0.0
+    $version_release = 1.0.1
 
 What's New??
 
-    * Stable Version *
+    * Handling Progress view *
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
@@ -94,7 +94,7 @@ Add it in your root build.gradle at the end of repositories:
 	
 <h3>Step 3. Declaration ConsumeTheMealDbApi</h3>
 
-	val consumeMealApi = ConsumeTheMealDbApi("1") // 1 is API_KEY
+	val consumeMealApi = ConsumeTheMealDbApi("1") Your API_KEY
     consumeMealApi.usingChuckInterceptor(this) // Using Chuck Interceptor
     consumeMealApi.listAllCateories(object : MealResultCallback<MealResponse<Category>> {
         override fun getResultData(data: MealResponse<Category>) {
@@ -104,8 +104,17 @@ Add it in your root build.gradle at the end of repositories:
         }
 
         override fun failedResult(statusCode: Int, errorMessage: String?) {
-            Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_SHORT).show()
+            // Failed Status
         }
+
+        override fun onShowProgress() {
+            // Show Your Progress View
+        }
+
+        override fun onHideProgress() {
+            // Hide Your Progress View
+        }
+        
     })
 	
 # Colaborator
