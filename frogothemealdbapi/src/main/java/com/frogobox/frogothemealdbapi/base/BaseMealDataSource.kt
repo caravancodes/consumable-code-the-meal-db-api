@@ -26,6 +26,13 @@ interface BaseMealDataSource {
 
         // If failed fetching data from API
         fun onFailed(statusCode: Int, errorMessage: String? = "")
+
+        // Show Progress View
+        fun onShowProgress()
+
+        // Hide Progress View
+        fun onHideProgress()
+
     }
 
 }

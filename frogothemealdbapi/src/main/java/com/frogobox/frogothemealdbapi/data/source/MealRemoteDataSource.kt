@@ -2,7 +2,8 @@ package com.frogobox.frogothemealdbapi.data.source
 
 import android.content.Context
 import com.frogobox.frogothemealdbapi.data.model.*
-import com.frogobox.frogothemealdbapi.data.response.*
+import com.frogobox.frogothemealdbapi.data.response.CategoryResponse
+import com.frogobox.frogothemealdbapi.data.response.MealResponse
 import com.frogobox.frogothemealdbapi.util.MealConstant
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -40,6 +41,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .searchMeal(apiKey, mealName)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<MealResponse<Meal>>() {
                 override fun onSuccess(data: MealResponse<Meal>) {
@@ -64,6 +67,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .listAllMeal(apiKey, firstLetter)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<MealResponse<Meal>>() {
                 override fun onSuccess(data: MealResponse<Meal>) {
@@ -87,6 +92,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .lookupFullMeal(apiKey, idMeal)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<MealResponse<Meal>>() {
                 override fun onSuccess(data: MealResponse<Meal>) {
@@ -109,6 +116,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .lookupRandomMeal(apiKey)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<MealResponse<Meal>>() {
                 override fun onSuccess(data: MealResponse<Meal>) {
@@ -131,6 +140,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .listMealCategories(apiKey)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<CategoryResponse>() {
                 override fun onSuccess(data: CategoryResponse) {
@@ -153,6 +164,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .listAllCateories(apiKey, MealConstant.VALUE_LIST)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<MealResponse<Category>>() {
                 override fun onSuccess(data: MealResponse<Category>) {
@@ -175,6 +188,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .listAllArea(apiKey, MealConstant.VALUE_LIST)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<MealResponse<Area>>() {
                 override fun onSuccess(data: MealResponse<Area>) {
@@ -197,6 +212,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .listAllIngredients(apiKey, MealConstant.VALUE_LIST)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<MealResponse<Ingredient>>() {
                 override fun onSuccess(data: MealResponse<Ingredient>) {
@@ -220,6 +237,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .filterByIngredient(apiKey, ingredient)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<MealResponse<MealFilter>>() {
                 override fun onSuccess(data: MealResponse<MealFilter>) {
@@ -243,6 +262,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .filterByCategory(apiKey, category)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<MealResponse<MealFilter>>() {
                 override fun onSuccess(data: MealResponse<MealFilter>) {
@@ -266,6 +287,8 @@ object MealRemoteDataSource : MealDataSource {
         mealApiService.getApiService
             .filterByArea(apiKey, area)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : MealApiCallback<MealResponse<MealFilter>>() {
                 override fun onSuccess(data: MealResponse<MealFilter>) {

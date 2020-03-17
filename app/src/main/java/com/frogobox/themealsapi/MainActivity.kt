@@ -27,6 +27,14 @@ class MainActivity : AppCompatActivity() {
             override fun failedResult(statusCode: Int, errorMessage: String?) {
                 Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_SHORT).show()
             }
+
+            override fun onShowProgress() {
+                // Show Your Progress View
+            }
+
+            override fun onHideProgress() {
+                // Hide Your Progress View
+            }
         })
 
 

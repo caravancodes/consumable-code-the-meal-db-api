@@ -25,4 +25,9 @@ interface MealResultCallback<T> {
     // Failed Meesage
     fun failedResult(statusCode: Int, errorMessage: String?)
 
+    // Show Progress View
+    fun onShowProgress()
+
+    // Hide Progress View
+    fun onHideProgress()
 }

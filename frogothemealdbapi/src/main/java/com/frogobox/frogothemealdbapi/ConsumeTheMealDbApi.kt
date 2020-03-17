@@ -46,6 +46,14 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
                 }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
             })
     }
 
@@ -64,6 +72,14 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
                 }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
             })
     }
 
@@ -79,6 +95,14 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
                 }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
             })
     }
 
@@ -92,6 +116,14 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
                 }
             })
     }
@@ -107,6 +139,14 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
                 }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
             })
     }
 
@@ -120,6 +160,14 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
                 }
             })
     }
@@ -135,6 +183,14 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
                 }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
             })
     }
 
@@ -148,6 +204,14 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
                 }
             })
     }
@@ -167,6 +231,14 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
                 }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
             })
     }
 
@@ -184,6 +256,14 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
                 }
             })
     }
@@ -203,6 +283,15 @@ class ConsumeTheMealDbApi(private val apiKey: String) : ConsumeTheMealDbApiView 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     callback.failedResult(statusCode, errorMessage)
                 }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+
             })
     }
 }
