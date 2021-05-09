@@ -1,6 +1,9 @@
 name: 'Consumable Code The Meal DB API'
 description: 'Retrofit has been Handled, Consumable code for request Public API (The Meal DB API)'
 author: 'Muhammad Faisal Amir'
+branding:
+  icon: archive
+  color: green
 inputs:
   myInput:
     description: 'Input to use'
