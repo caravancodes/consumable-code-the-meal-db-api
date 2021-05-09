@@ -1,32 +1,29 @@
-# consumable-code-the-meal-db-api By AmirIsBack
-- v1.0.2 - Development
-- Stable Version
+## consumable-code-the-meal-db-api
+[![](https://jitpack.io/v/amirisback/consumable-code-the-meal-db-api.svg?style=flat-square)](https://jitpack.io/#amirisback/consumable-code-the-meal-db-api) <br>
+Eliminates the method of retrieving json data using retrofit repeatedly. so this project has a set of functions to retrieve data without the need for fetching data using the retrofit of the API <br>
 
-# About This Project
-Eliminates the method of retrieving json data using retrofit repeatedly. so this project has a set of functions to retrieve data without the need for fetching data using the retrofit of the API
+## Documentation The News API
+https://www.themealdb.com/api.php
 
-# Screen Shoot Apps
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_main.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_chuck_1.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_chuck_2.png"></span>
+## Screen Shoot Apps
+| The Meals API |   Chuck Data 1              |   Chuck Data 2  |
+|:------------------:|:----------------------------:|:---------------------:|
+| <span align="center"><img width="200px" height="360px" src="docs/image/ss_main.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_chuck_1.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_chuck_2.png"></span> |
 
-# Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.72'
-- classpath 'com.android.tools.build:gradle:3.6.3'
-- compileSdkVersion 29
-- buildToolsVersion "29.0.3"
-- minSdkVersion 21
-
-# Version Release
+## Version Release
 This Is Latest Release
 
-    $version_release = 1.0.2
+    $version_release = 1.1.0
 
 What's New??
 
-    * Handling Progress view *
+    * Fixing CLEARTEXT security policy issue *
+    * Update build.gradle *
+    * Fixing Bug *
+    * Enhance Performance *
+    * Remove Kotlin Android Extension *
 
-# How To Use This Project
+## How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
 
 Add it in your root build.gradle at the end of repositories:
@@ -43,7 +40,7 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library consumable code the meal db api
-            implementation 'com.github.amirisback:consumable-code-the-meal-db-api:1.0.2'
+            implementation 'com.github.amirisback:consumable-code-the-meal-db-api:1.1.0'
 	}
 	
 <h3>Step 3. Declaration ConsumeTheMealDbApi</h3>
@@ -72,7 +69,7 @@ Add it in your root build.gradle at the end of repositories:
     })
 	
 
-# Function Main From This Project
+## Function Main From This Project
 
     // Switch For Using Chuck Interceptor
     fun usingChuckInterceptor(context: Context)
@@ -109,17 +106,8 @@ Add it in your root build.gradle at the end of repositories:
 
     // Filter by Area
     fun filterByArea(area: String, callback: MealResultCallback<MealResponse<MealFilter>>)
-    
-# Fecthing Data Library
-- Retrofit
-- RxJava
-- OkHttp
-- Chuck Interceptor
 
-# Documentation The Meal Db Api
-https://www.themealdb.com/api.php
-
-# Colaborator
+## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
 - Mail To faisalamircs@gmail.com
@@ -133,7 +121,7 @@ Name Of Contribute
 
 Waiting for your contribute
 
-# Attention !!!
+## Attention !!!
 Please enjoy and don't forget fork and give a star
 - Don't Forget Follow My Github Account
 - If you like this library, please help me / you can donate to buy patreon services
