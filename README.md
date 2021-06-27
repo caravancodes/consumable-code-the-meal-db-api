@@ -13,15 +13,12 @@ https://www.themealdb.com/api.php
 ## Version Release
 This Is Latest Release
 
-    $version_release = 1.1.0
+    $version_release = 1.1.1
 
 What's New??
 
-    * Fixing CLEARTEXT security policy issue *
     * Update build.gradle *
-    * Fixing Bug *
     * Enhance Performance *
-    * Remove Kotlin Android Extension *
 
 ## How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
@@ -40,7 +37,7 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library consumable code the meal db api
-            implementation 'com.github.amirisback:consumable-code-the-meal-db-api:1.1.0'
+            implementation 'com.github.amirisback:consumable-code-the-meal-db-api:1.1.1'
 	}
 	
 <h3>Step 3. Declaration ConsumeTheMealDbApi</h3>
